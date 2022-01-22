@@ -121,12 +121,12 @@ volatile int maxPWMout = 300;// pwm in microseconds
 volatile float max_propo = 300;
 volatile float max_inter = 50;
 volatile float max_deriv = 200;
-volatile float Kp  = 0.9;
-volatile float Ki  = 2.5; // /1000
-volatile float Kd  = 40.0;
-volatile float Kpz  = 5.0;
-volatile float Kiz  = 0.0;
-volatile float Kdz  = 0.0;
+volatile float Kp  = 1.8;
+volatile float Ki  = 2.0; // /1000
+volatile float Kd  = 70.0;
+volatile float Kpz  = 4.5;
+volatile float Kiz  = 3.0;
+volatile float Kdz  = 20.0;
 volatile float dt = 5;    // millisecond
 
 
