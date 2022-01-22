@@ -1,5 +1,13 @@
 # esp_quad
 
+
+四轴飞行器
+quadcopter
+
+我是自学的，所以可能有些地方可能不专业，请指出和包涵。
+不知道要写什么，需要什么信息可以评论。
+
+
 lib used
 
 https://github.com/ElectronicCats/mpu6050
@@ -28,6 +36,9 @@ MPU6050
 NRF24l01
 
 2200mAh 30C lipo
+
+pcb size 50*70mm
+
 
 
 
