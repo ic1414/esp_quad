@@ -38,20 +38,17 @@ ESP32 dev v1
 MPU6050
 
 NRF24l01 (dip)
-
-
-（这个原理图是我在刚学会画图的时候画的，那时候只知道用线。。。）
-
-如果你的电调没有bec，那个5v就没用
-
 我没有给nrf加电容。
 
 pcb 大小:50*70mm
 
 pcb 洞直径4mm， 圆心距离板子边缘是也是4mm
 
+如果你的电调没有bec，那个5v就没用
+
 esp32，mpu 和 nrf 都是在一个平面上的，要用到排母。具体看视频:https://www.bilibili.com/video/BV1Rq4y1k74o/
 
+（这个原理图是我在刚学会画图的时候画的，那时候只知道用线。。。）
 ![Snipaste_2022-01-23_21-15-34](https://user-images.githubusercontent.com/93729382/150698246-78d3da66-8087-4fe0-b6a5-2e3735c33d64.png)
 
 
