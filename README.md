@@ -19,7 +19,8 @@ https://github.com/nRF24/RF24
 
 https://github.com/madhephaestus/ESP32Servo
 
-	   
+materials: 
+
 (currently i am using 3d printed foldable frame with same pid settings)
 
 F450 frame
