@@ -42,6 +42,7 @@ NRF24l01
 pcb size 50*70mm
 
 
+![Snipaste_2022-01-23_21-15-34](https://user-images.githubusercontent.com/93729382/150698246-78d3da66-8087-4fe0-b6a5-2e3735c33d64.png)
 
 
 
