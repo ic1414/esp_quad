@@ -9,7 +9,7 @@ quadcopter
 可能有些地方可能不专业，请指出和包涵。
 不知道要写什么，需要什么信息评论。
 
-lib used
+## lib used
 
 https://github.com/ElectronicCats/mpu6050
 
@@ -19,7 +19,7 @@ https://github.com/nRF24/RF24
 
 https://github.com/madhephaestus/ESP32Servo
 
-materials: 
+## materials: 
 
 (currently i am using 3d printed foldable frame with same pid settings)
 
