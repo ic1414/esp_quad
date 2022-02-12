@@ -48,16 +48,28 @@ pcb 洞直径4mm， 圆心距离板子边缘也是4mm
 
 如果你的电调没有bec，那个5v就没用
 
-esp32，mpu 和 nrf 都是在一个平面上的，要用到排母。具体看视频:https://www.bilibili.com/video/BV1Rq4y1k74o/
+esp32，mpu 和 nrf 都是在一个平面上的，要用到排母。具体看下方图片。
 
 （这个原理图是我在刚学会画图的时候画的，那时候只知道用线。。。）
 ![Snipaste_2022-01-23_21-15-34](https://user-images.githubusercontent.com/93729382/150698246-78d3da66-8087-4fe0-b6a5-2e3735c33d64.png)
 
 
-你可能需要给你的桨叶动平衡。可以用一些胶带。
+## 图片
+![Snipaste_2022-02-12_21-18-44](https://user-images.githubusercontent.com/93729382/153728822-b4021f53-91a1-41fd-ba63-0a54a1d2fdcd.png)
+
+![Snipaste_2022-02-12_21-18-16](https://user-images.githubusercontent.com/93729382/153728832-dda35325-d8dc-4069-884d-cacaf6c28adc.png)
+
+
 
 ## 建议
 用降压模块将电池的3s降到5v接到2s输入给飞控供电。
+
+你可能需要给你的桨叶动平衡。可以用一些胶带。
+
+
+
+
+
 
 
 
