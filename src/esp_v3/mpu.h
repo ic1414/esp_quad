@@ -12,12 +12,6 @@
 #define gyro_offsetY  1.0f
 #define gyro_offsetZ  134.0f
 
-/*
-#define gyro_offsetX  81.0f
-#define gyro_offsetY  41.0f
-#define gyro_offsetZ -20.0f
-*/
-
 //#define manu_acc_offset
 #define acc_offsetX  81.0f
 #define acc_offsetY  41.0f
