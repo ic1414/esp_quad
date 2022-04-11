@@ -7,6 +7,11 @@
 #include "MPU6050_6Axis_MotionApps20.h"
 #include <SimpleKalmanFilter.h>
 
+
+// 我感觉单单用dmp也可以(没试过)
+// 至于我为什么要加上一点自己算的单纯心理作用，代码越长越厉害, 还有esp32那么多算力可不能浪费了
+
+
 //#define manu_gyro_offset
 #define gyro_offsetX  134.0f
 #define gyro_offsetY  1.0f
@@ -52,7 +57,7 @@ class MPU{
 void MPU::begin(){
   //wire begin
   Wire.begin();
-  Wire.setClock(1000000);
+  Wire.setClock(1000000); //我不知道为什么1mhz也可以用， datasheet说最高400khz
   // mpu begin
   mpu.initialize();
   //mpu.setFullScaleGyroRange(1);
@@ -186,9 +191,9 @@ void MPU::update(){
     mpu.dmpGetQuaternion(&q, fifoBuffer);
     mpu.dmpGetGravity(&gravity, &q);
     mpu.dmpGetYawPitchRoll(yrp, &q, &gravity);
-    angle[0] = angle[0] * 0.85f + (-yrp[2] * 180.0f / PI) * 0.15f;
-    angle[1] = angle[1] * 0.85f + (-yrp[1] * 180.0f / PI) * 0.15f;
-    angle[2] = angle[2] * 0.90f + ( yrp[0] * 180.0f / PI) * 0.10f;
+    angle[0] = angle[0] * 0.20f + (-yrp[2] * 180.0f / PI) * 0.80f;
+    angle[1] = angle[1] * 0.20f + (-yrp[1] * 180.0f / PI) * 0.80f;
+    angle[2] = angle[2] * 0.20f + ( yrp[0] * 180.0f / PI) * 0.80f;
 
     // update timer
     timer_gyro = micros();
