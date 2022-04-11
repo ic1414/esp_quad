@@ -183,7 +183,7 @@ void MPU::update(){
     mpu.dmpGetYawPitchRoll(yrp, &q, &gravity);
     angle[0] = angle[0] * 0.40f + (-yrp[2] * 180.0f / PI) * 0.60f;
     angle[1] = angle[1] * 0.40f + (-yrp[1] * 180.0f / PI) * 0.60f;
-    angle[2] = angle[1] * 0.10f + ( yrp[0] * 180.0f / PI) * 0.90f;
+    angle[2] = angle[2] * 0.10f + ( yrp[0] * 180.0f / PI) * 0.90f;
 
     // update timer
     timer_gyro = micros();
