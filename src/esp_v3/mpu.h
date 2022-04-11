@@ -26,6 +26,7 @@ SimpleKalmanFilter filterX(5.0f, 5.0f, 0.1f);
 SimpleKalmanFilter filterY(5.0f, 5.0f, 0.1f);
 SimpleKalmanFilter filterZ(5.0f, 5.0f, 0.1f);
 
+#define gyroFilter
 SimpleKalmanFilter filterGX(15.0f, 15.0f, 0.06f);
 SimpleKalmanFilter filterGY(15.0f, 15.0f, 0.06f);
 SimpleKalmanFilter filterGZ(15.0f, 15.0f, 0.06f);
@@ -83,10 +84,7 @@ void MPU::begin(){
   mpu.setZAccelOffset(mpu.getZAccelOffset());
   #endif
 
-  // print offsets
   mpu.PrintActiveOffsets();
-
-  // continue
   mpu.setDMPEnabled(true);
   packetSize = mpu.dmpGetFIFOPacketSize();
   fifoCount = mpu.getFIFOCount();
@@ -102,7 +100,9 @@ void MPU::update(){
     sample_count += 1;
 
     float raw_gyro_avg[3] = {0, 0, 0};
+
     for(int i = 0; i < 3; i++){
+      // 123
       loop_count += 1;  
       // get gyro raw data
       Wire.beginTransmission(0x68);
@@ -124,9 +124,15 @@ void MPU::update(){
       raw_gyro[1] =  raw_gyro[1];
       raw_gyro[2] = -raw_gyro[2];
 
+      #ifdef gyroFilter
       raw_gyro_avg[0] += filterGX.updateEstimate(raw_gyro[0] / 3);
       raw_gyro_avg[1] += filterGY.updateEstimate(raw_gyro[1] / 3);
       raw_gyro_avg[2] += filterGZ.updateEstimate(raw_gyro[2] / 3);
+      #else
+      raw_gyro_avg[0] += raw_gyro[0] / 3;
+      raw_gyro_avg[1] += raw_gyro[1] / 3;
+      raw_gyro_avg[2] += raw_gyro[2] / 3;
+      #endif
 
       delayMicroseconds(4);
     }
@@ -141,13 +147,10 @@ void MPU::update(){
     angle[0] +=  cur_Gyro[0] * dt;
     angle[1] +=  cur_Gyro[1] * dt;
     angle[2] +=  cur_Gyro[2] * dt;
-    angle[0] -= angle[0] * sin(cur_Gyro[2] * dt * 0.01745f);
-    angle[1] += angle[1] * sin(cur_Gyro[2] * dt * 0.01745f);
+    angle[0] += angle[1] * sin(cur_Gyro[2] * dt * 0.017453292f);
+    angle[1] -= angle[0] * sin(cur_Gyro[2] * dt * 0.017453292f);
+    timer_gyro = micros(); // update timer
 
-    // update timer
-    timer_gyro = micros();
-
-    // fun
     #ifdef angleFilter
     cur_Angle[0] = filterX.updateEstimate(angle[0]);
     cur_Angle[1] = filterY.updateEstimate(angle[1]);
@@ -157,7 +160,9 @@ void MPU::update(){
     cur_Angle[1] = angle[1];
     cur_Angle[2] = angle[2];
     #endif
+
     delayMicroseconds(3);
+
     // get fifo less frequently to increase sample rate
     if (loop_count == 24) fifoCount = mpu.getFIFOCount();
     if (loop_count == 24) loop_count = 0; // reset
@@ -181,9 +186,9 @@ void MPU::update(){
     mpu.dmpGetQuaternion(&q, fifoBuffer);
     mpu.dmpGetGravity(&gravity, &q);
     mpu.dmpGetYawPitchRoll(yrp, &q, &gravity);
-    angle[0] = angle[0] * 0.40f + (-yrp[2] * 180.0f / PI) * 0.60f;
-    angle[1] = angle[1] * 0.40f + (-yrp[1] * 180.0f / PI) * 0.60f;
-    angle[2] = angle[2] * 0.10f + ( yrp[0] * 180.0f / PI) * 0.90f;
+    angle[0] = angle[0] * 0.85f + (-yrp[2] * 180.0f / PI) * 0.15f;
+    angle[1] = angle[1] * 0.85f + (-yrp[1] * 180.0f / PI) * 0.15f;
+    angle[2] = angle[2] * 0.90f + ( yrp[0] * 180.0f / PI) * 0.10f;
 
     // update timer
     timer_gyro = micros();
