@@ -4,7 +4,7 @@
 四轴飞行器
 quadcopter
 
-支持遥控直接调PID!!!
+支持遥控直接调PID! (正在加蓝牙调参)
 
 不知道要写什么，到时候补充。
 
@@ -20,17 +20,15 @@ https://github.com/madhephaestus/ESP32Servo
 
 ## materials: 
 
-(currently i am using 3d printed foldable frame with same pid settings)
-
 F450 frame
 
 2212 1000kv
 
 9047 propeller
 
-Blhelis 30A ESC
+Blhelis 30A ESC 
 
-2200mAh 30C lipo
+2200mAh 35C lipo
 
 ESP32 dev v1
 
@@ -39,7 +37,6 @@ MPU6050
 Buck converter (optional)
 
 NRF24l01 (dip)
-我没有给nrf加电容。
 
 pcb 大小:50*70mm
 
