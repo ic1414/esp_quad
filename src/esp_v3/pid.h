@@ -8,18 +8,20 @@
 class PID {
   private:
     // output limit  
-    float kp;
-    float ki;
-    float kd;
     int limitP;
     int limitI;
     int limitD;
-    float integral;
-    float pre_error;
+    float integral = 0;
+    float pre_error = 0;
+    float pre_derivative_out = 0;
+
 
   public:
     // constant
     // functions
+    float kp;
+    float ki;
+    float kd;
     PID(float p, float i, float d, int lp, int li, int ld);
     int _calculate(float set_point, float measure, float dt);
     float get_integral();
@@ -68,7 +70,9 @@ int PID::_calculate(float set_point, float measure, float dt){
   // derivative
   // ...
   float derivative_out = (cur_error - pre_error) * kd / dt;
+  derivative_out = derivative_out * 0.90 + pre_derivative_out * 0.10;
   derivative_out = constrain(derivative_out, -limitD, limitD);
+  pre_derivative_out = derivative_out;
   pre_error = cur_error;
 
   // out
