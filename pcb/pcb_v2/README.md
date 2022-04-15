@@ -8,7 +8,7 @@ F450 机架
 
 9047 propeller
 
-Blhelis 30A ESC 
+Blhelis 30A ESC or 4 in one ESC 
 
 2200mAh 35C lipo (建议选>35C)
 
