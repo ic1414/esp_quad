@@ -27,9 +27,9 @@ NRF24l01 smd or NRF24l01 gt24
 
 0805 resistors 10kX3 & 12kX2 & 3k & 7k5 & 33k
 
-tantalum capacitor 22uf
+typeA tantalum capacitor 22uf
 
-cerammic capacitor 10ufX2 & 0.1ufX2
+0805 cerammic capacitor 10ufX2 & 0.1ufX2
 
 jst sh1.0 horizontal smd 4pX2 & 6pX4
 
