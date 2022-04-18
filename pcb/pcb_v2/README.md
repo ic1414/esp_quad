@@ -19,6 +19,8 @@ Blhelis 30A ESC or 4 in one ESC
 ### 飞控
 ESP32-WROOM-32U or ESP32-WROOM-32D
 
+AMS1117 3V3  SOT223
+
 MPU6050(GY521)
 
 Buck converter (optional)
