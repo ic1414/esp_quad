@@ -1,8 +1,5 @@
 /*
 
-！！！！！！！！！！！！！！需要改
-!!!!!!!!!!!!!!!!!!!!!!!!! z 的pid有问题。 当setPointZ 是179，cur_Anglez是-175，radioZ是false，Zmove是true，那么setAngle应该是-185.
-
 只有自稳模式!!!!!!! (因为我不会飞手动)
 
 
