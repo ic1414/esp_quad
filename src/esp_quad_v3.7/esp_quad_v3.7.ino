@@ -88,8 +88,8 @@ volatile int motorPwmWrite[4] = {1000, 1000, 1000, 1000}; //电机 a, b, c, d
 #define dt 5 // milli
 #define maxPWMout 300 // 限制最终输出
 #define maxAngle 70.0 // 限制角度， 万向锁, 安全
-PID pidX(1.8f, 0.0f, 350.0f, 250, 100, 200);
-PID pidY(1.8f, 0.0f, 350.0f, 250, 100, 200);
+PID pidX(1.6f, 0.0f, 350.0f, 250, 100, 200);
+PID pidY(1.6f, 0.0f, 350.0f, 250, 100, 200);
 PID pidZ(4.5f, 0.0f, 0.000f, 250, 100, 200); 
 PID pidGX(0.9f, 1.5f, 0.0f, 250, 100, 200); // 还没试过角速度环
 PID pidGY(0.9f, 1.5f, 0.0f, 250, 100, 200); // 还没试过角速度环
