@@ -8,14 +8,5 @@ quadcopter
 
 不知道要写什么，到时候补充。
 
-## lib used
-
-https://github.com/ElectronicCats/mpu6050
-
-https://github.com/denyssene/SimpleKalmanFilter
-
-https://github.com/nRF24/RF24
-
-https://github.com/madhephaestus/ESP32Servo
 
 
