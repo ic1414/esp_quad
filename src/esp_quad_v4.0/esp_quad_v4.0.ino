@@ -195,7 +195,7 @@ void task_reset( void * pvParameters ){
     static unsigned long timer_reset1;
     static unsigned long timer_reset2;
     
-    // 摇晃飞控进入调参
+    
     if(not(reciever.getEnable())){
       // 移动x和y摇杆到-30进入调参
       if(millis() - timer_reset1 > 200){
