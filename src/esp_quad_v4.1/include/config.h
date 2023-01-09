@@ -136,8 +136,8 @@ SimpleKalmanFilter filterGZ(5.0f, 5.0f, 0.1f);
 // 新芯片最好取消下行注释上传一遍。上传后再将下行注释，再上传。
 // #define initEEPROM
 
-#define serverNameOTA "MEO-813190"
-#define serverPassOTA "b7a5dafa3b"
+#define serverNameOTA "wifi name"
+#define serverPassOTA "wifi pass"
 
 #ifdef smd 
     #define serverNamePID "esp32smd"
