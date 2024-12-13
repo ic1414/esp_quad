@@ -102,9 +102,9 @@ enum mABCD{mA, mB, mC, mD};
 // 默认是 pcb_v1
 //#define smd // 取消注释, 如果你用的是pcv_2
 
-// 下面4个选一个
+// 下面3个选一个
 #define dshot // 取消注释使用dshot
-// #define pwmm // 取消注释使用dshot
+// #define pwmm // 取消注释使用pwm
 // #define brushed // 取消注释使用类似analogWrite"的方法控制电机
 
 
